@@ -13,6 +13,7 @@ defmodule Coherence.RegistrationController do
   use Coherence.Web, :controller
   require Logger
   alias Coherence.ControllerHelpers, as: Helpers
+  import Coherence.Gettext
 
   @dialyzer [
     {:nowarn_function, update: 2},
@@ -100,7 +101,7 @@ defmodule Coherence.RegistrationController do
     case Config.repo.update(changeset) do
       {:ok, user} ->
         apply(Config.auth_module, Config.update_login, [conn, user, [id_key: Config.schema_key]])
-        |> put_flash(:info, "Account updated successfully.")
+        |> put_flash(:info, gettext("Account updated successfully."))
         |> redirect_to(:registration_update, params, user)
       {:error, changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)

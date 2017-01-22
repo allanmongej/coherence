@@ -7,6 +7,7 @@ defmodule Coherence.ControllerHelpers do
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2, put_layout: 2, put_view: 2]
   import Plug.Conn, only: [halt: 1]
   alias Coherence.{ConfirmableService, RememberableService, TrackableService}
+  import Coherence.Gettext
   @lockable_failure "Failed to update lockable attributes "
 
   @type schema :: Ecto.Schema.t
@@ -167,10 +168,10 @@ defmodule Coherence.ControllerHelpers do
 
       send_user_email :confirmation, user, url
       conn
-      |> put_flash(:info, "Confirmation email sent.")
+      |> put_flash(:info, gettext("Confirmation email sent."))
     else
       conn
-      |> put_flash(:info, "Registration created successfully.")
+      |> put_flash(:info, gettext("Registration created successfully."))
     end
   end
 
@@ -241,7 +242,7 @@ defmodule Coherence.ControllerHelpers do
   def redirect_logged_in(conn, _params) do
     if Coherence.logged_in?(conn) do
       conn
-      |> put_flash(:info, "Already logged in." )
+      |> put_flash(:info, gettext("Already logged in."))
       |> redirect(to: logged_in_url(conn))
       |> halt
     else

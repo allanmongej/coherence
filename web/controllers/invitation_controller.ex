@@ -16,6 +16,7 @@ defmodule Coherence.InvitationController do
   alias Coherence.ControllerHelpers, as: Helpers
   import Ecto.Changeset
   require Logger
+  import Coherence.Gettext
 
   plug Coherence.ValidateOption, :invitable
   plug :scrub_params, "user" when action in [:create_user]
@@ -55,7 +56,7 @@ defmodule Coherence.InvitationController do
           {:ok, invitation} ->
             send_user_email :invitation, invitation, url
             conn
-            |> put_flash(:info, "Invitation sent.")
+            |> put_flash(:info, gettext("Invitation sent."))
             |> redirect_to(:invitation_create, params)
           {:error, changeset} ->
             {conn, changeset} = case repo.one from i in Invitation, where: i.email == ^email do
@@ -88,7 +89,7 @@ defmodule Coherence.InvitationController do
     |> case do
       nil ->
         conn
-        |> put_flash(:error, "Invalid invitation token.")
+        |> put_flash(:error, gettext("Invalid invitation token."))
         |> redirect(to: logged_out_url(conn))
       invite ->
         user_schema = Config.user_schema
@@ -115,7 +116,7 @@ defmodule Coherence.InvitationController do
     |> case do
       nil ->
         conn
-        |> put_flash(:error, "Invalid Invitation. Please contact the site administrator.")
+        |> put_flash(:error, gettext("Invalid Invitation. Please contact the site administrator."))
         |> redirect(to: logged_out_url(conn))
       invite ->
         changeset = Helpers.changeset(:invitation, user_schema, user_schema.__struct__, params["user"])
@@ -141,11 +142,11 @@ defmodule Coherence.InvitationController do
     case Config.repo.get(Invitation, id) do
       nil ->
         conn
-        |> put_flash(:error, "Can't find that token")
+        |> put_flash(:error, gettext("Can't find that token"))
       invitation ->
         send_user_email :invitation, invitation,
           router_helpers().invitation_url(conn, :edit, invitation.token)
-        put_flash conn, :info, "Invitation sent."
+        put_flash conn, :info, gettext("Invitation sent.")
     end
     |> redirect(to: logged_out_url(conn))
   end

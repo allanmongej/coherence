@@ -16,6 +16,7 @@ defmodule <%= base %>.Coherence.PasswordController do
   use Timex
   alias Coherence.ControllerHelpers, as: Helpers
   alias Coherence.TrackableService
+  import Coherence.Gaettext
 
   plug :layout_view
   plug :redirect_logged_in when action in [:new, :create, :edit, :update]
@@ -49,7 +50,7 @@ defmodule <%= base %>.Coherence.PasswordController do
       nil ->
         changeset = Helpers.changeset :password, user_schema, user_schema.__struct__
         conn
-        |> put_flash(:error, "Could not find that email address")
+        |> put_flash(:error, gettext("Could not find that email address"))
         |> render("new.html", changeset: changeset)
       user ->
         token = random_string 48
@@ -63,7 +64,7 @@ defmodule <%= base %>.Coherence.PasswordController do
         send_user_email :password, user, url
 
         conn
-        |> put_flash(:info, "Reset email sent. Check your email for a reset link.")
+        |> put_flash(:info, gettext("Reset email sent. Check your email for a reset link."))
         |> redirect_to(:password_create, params)
     end
   end
@@ -80,7 +81,7 @@ defmodule <%= base %>.Coherence.PasswordController do
     case user do
       nil ->
         conn
-        |> put_flash(:error, "Invalid reset token.")
+        |> put_flash(:error, gettext("Invalid reset token."))
         |> redirect(to: logged_out_url(conn))
       user ->
         if expired? user.reset_password_sent_at, days: Config.reset_token_expire_days do
@@ -88,7 +89,7 @@ defmodule <%= base %>.Coherence.PasswordController do
           |> Config.repo.update
 
           conn
-          |> put_flash(:error, "Password reset token expired.")
+          |> put_flash(:error, gettext("Password reset token expired."))
           |> redirect(to: logged_out_url(conn))
         else
           changeset = Helpers.changeset(:password, user_schema, user)
@@ -111,7 +112,7 @@ defmodule <%= base %>.Coherence.PasswordController do
     case user do
       nil ->
         conn
-        |> put_flash(:error, "Invalid reset token")
+        |> put_flash(:error, gettext("Invalid reset token"))
         |> redirect(to: logged_out_url(conn))
       user ->
         params = password_params
@@ -121,7 +122,7 @@ defmodule <%= base %>.Coherence.PasswordController do
           {:ok, user} ->
             conn
             |> TrackableService.track_password_reset(user, user_schema.trackable_table?)
-            |> put_flash(:info, "Password updated successfully.")
+            |> put_flash(:info, gettext("Password updated successfully."))
             |> redirect_to(:password_update, params)
           {:error, changeset} ->
             conn

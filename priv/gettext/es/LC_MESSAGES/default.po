@@ -1,0 +1,130 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+
+#: web/controllers/confirmation_controller.ex:52
+msgid "Account already confirmed."
+msgstr "Cuenta ya ha sido confirmada."
+
+#: web/controllers/unlock_controller.ex:95
+msgid "Account is not locked."
+msgstr "Cuenta no se encuentra bloqueada."
+
+#: web/controllers/registration_controller.ex:104
+msgid "Account updated successfully."
+msgstr "Cuenta actualizada correctamente."
+
+#: web/controllers/controller_helpers.ex:245
+msgid "Already logged in."
+msgstr "Ya ha iniciado sesión"
+
+#: web/controllers/invitation_controller.ex:145
+msgid "Can't find that token"
+msgstr "Token inválido."
+
+#: web/controllers/controller_helpers.ex:171
+msgid "Confirmation email sent."
+msgstr "Correo de confirmación enviado."
+
+#: web/controllers/confirmation_controller.ex:83
+msgid "Confirmation token expired."
+msgstr "Token de confirmación ha expirado"
+
+#: web/controllers/confirmation_controller.ex:47
+#: web/controllers/password_controller.ex:53
+msgid "Could not find that email address"
+msgstr "No se ha encoentrado esa dirección de correo."
+
+#: web/controllers/invitation_controller.ex:119
+msgid "Invalid Invitation. Please contact the site administrator."
+msgstr "Invitación inválida. Por favor contacte al administrador del sitio."
+
+#: lib/coherence/plugs/require_login.ex:23
+#: lib/coherence/plugs/validate_option.ex:25
+msgid "Invalid Request."
+msgstr "Solicitud inválida."
+
+#: web/controllers/confirmation_controller.ex:78
+msgid "Invalid confirmation token."
+msgstr "Token de confirmación inválido."
+
+#: web/controllers/unlock_controller.ex:66
+msgid "Invalid email or password."
+msgstr "Correo/contraseña inválidos."
+
+#: web/controllers/invitation_controller.ex:92
+msgid "Invalid invitation token."
+msgstr "Token de invitación inválido."
+
+#: web/controllers/password_controller.ex:84
+#: web/controllers/password_controller.ex:115
+msgid "Invalid reset token."
+msgstr "Token de reinicio inválido."
+
+#: web/controllers/unlock_controller.ex:83
+msgid "Invalid unlock token."
+msgstr "Token de desbloqueo inválido."
+
+#: web/controllers/invitation_controller.ex:59
+#: web/controllers/invitation_controller.ex:149
+msgid "Invitation sent."
+msgstr "Invitación enviada."
+
+#: web/controllers/password_controller.ex:92
+msgid "Password reset token expired."
+msgstr "Token de reinicio de contraseña inválido."
+
+#: web/controllers/password_controller.ex:125
+msgid "Password updated successfully."
+msgstr "Contraseña actualizada correctamente."
+
+#: web/controllers/confirmation_controller.ex:97
+msgid "Problem confirming user account. Please contact the system administrator."
+msgstr "Problemas confirmando la cuenta. Por favor contacte al administrador del sistema."
+
+#: web/controllers/controller_helpers.ex:174
+msgid "Registration created successfully."
+msgstr "Registro creado correctamente."
+
+#: web/controllers/password_controller.ex:67
+msgid "Reset email sent. Check your email for a reset link."
+msgstr "Correo de reinicio enviado."
+
+#: web/controllers/session_controller.ex:93
+msgid "Signed in successfully."
+msgstr "Sesión iniciada correctamente."
+
+#: web/controllers/session_controller.ex:97
+msgid "Too many failed login attempts. Account has been locked."
+msgstr "Demasiados intentos fallidos. Cuenta ha sido bloequeada."
+
+#: web/controllers/unlock_controller.ex:54
+msgid "Unlock Instructions sent."
+msgstr "Instrucciones de desbloqueo enviadas."
+
+#: web/controllers/confirmation_controller.ex:93
+msgid "User account confirmed successfully."
+msgstr "Cuenta ha sido confirmada exitosamente."
+
+#: web/controllers/session_controller.ex:242
+msgid "You are using an invalid security token for this site! This security\nviolation has been logged.\n"
+msgstr "Estás usando un token de seguridad inválido, esta violación de seguridad ha sido registrada."
+
+#: web/controllers/session_controller.ex:104
+msgid "You must confirm your account before you can login."
+msgstr "Debés confirmar tu cuenta antes de ingresar."
+
+#: web/controllers/unlock_controller.ex:90
+msgid "Your account has been unlocked"
+msgstr "Tu cuenta ha sido bloqueada."
+
+#: web/controllers/unlock_controller.ex:58
+msgid "Your account is not locked."
+msgstr "Tu cuenta no se encuentra bloqueada."
