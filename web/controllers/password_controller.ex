@@ -123,7 +123,7 @@ defmodule Coherence.PasswordController do
             conn
             |> TrackableService.track_password_reset(user, user_schema.trackable_table?)
             |> put_flash(:info, gettext("Password updated successfully."))
-            |> redirect_to(:password_update, params)
+            |> redirect(to: logged_out_url(conn))
           {:error, changeset} ->
             conn
             |> render("edit.html", changeset: changeset)

@@ -147,7 +147,10 @@ defmodule Coherence.ControllerHelpers do
   def send_user_email(fun, model, url) do
     email = apply(Module.concat(Config.module, Coherence.UserEmail), fun, [model, url])
     Logger.debug fn -> "#{fun} email: #{inspect email}" end
+    #LoyaltyAdmin.Coherence.Mailer.deliver(email)
+
     apply(Module.concat(Config.module, Coherence.Mailer), :deliver, [email])
+    |> IO.inspect
   end
 
   @doc """
@@ -261,13 +264,18 @@ defmodule Coherence.ControllerHelpers do
   end
 
   @spec changeset(atom, module, schema, params) :: changeset
-  def changeset(which, module, model, params \\ %{}) do
+  def changeset(which, module, model, params \\ %{})
+  def changeset(:password, module, model, params) do
+    apply(module, :password_changeset, [model, params])
+  end
+  def changeset(which, module, model, params) do
     {mod, fun, args} = case Application.get_env :coherence, :changeset do
       nil -> {module, :changeset, [model, params]}
       {mod, fun} -> {mod, fun, [model, params, which]}
     end
     apply mod, fun, args
   end
+
 
   @doc """
   Login a user.

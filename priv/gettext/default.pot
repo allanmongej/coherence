@@ -10,7 +10,7 @@ msgstr ""
 msgid "Account updated successfully."
 msgstr ""
 
-#: web/controllers/controller_helpers.ex:245
+#: web/controllers/controller_helpers.ex:248
 msgid "Already logged in."
 msgstr ""
 
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Can't find that token"
 msgstr ""
 
-#: web/controllers/controller_helpers.ex:171
+#: web/controllers/controller_helpers.ex:174
 msgid "Confirmation email sent."
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "Problem confirming user account. Please contact the system administrator."
 msgstr ""
 
-#: web/controllers/controller_helpers.ex:174
+#: web/controllers/controller_helpers.ex:177
 msgid "Registration created successfully."
 msgstr ""
 
@@ -116,4 +116,12 @@ msgstr ""
 
 #: web/controllers/unlock_controller.ex:58
 msgid "Your account is not locked."
+msgstr ""
+
+#: web/controllers/session_controller.ex:138
+msgid "Incorrect email or password."
+msgstr ""
+
+#: web/controllers/session_controller.ex:139
+msgid "Maximum Login attempts exceeded. Your account has been locked."
 msgstr ""

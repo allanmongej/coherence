@@ -21,7 +21,7 @@ msgstr "Cuenta no se encuentra bloqueada."
 msgid "Account updated successfully."
 msgstr "Cuenta actualizada correctamente."
 
-#: web/controllers/controller_helpers.ex:245
+#: web/controllers/controller_helpers.ex:248
 msgid "Already logged in."
 msgstr "Ya ha iniciado sesión"
 
@@ -29,7 +29,7 @@ msgstr "Ya ha iniciado sesión"
 msgid "Can't find that token"
 msgstr "Token inválido."
 
-#: web/controllers/controller_helpers.ex:171
+#: web/controllers/controller_helpers.ex:174
 msgid "Confirmation email sent."
 msgstr "Correo de confirmación enviado."
 
@@ -40,7 +40,7 @@ msgstr "Token de confirmación ha expirado"
 #: web/controllers/confirmation_controller.ex:47
 #: web/controllers/password_controller.ex:53
 msgid "Could not find that email address"
-msgstr "No se ha encoentrado esa dirección de correo."
+msgstr "No se ha encontrado esa dirección de correo."
 
 #: web/controllers/invitation_controller.ex:119
 msgid "Invalid Invitation. Please contact the site administrator."
@@ -89,7 +89,7 @@ msgstr "Contraseña actualizada correctamente."
 msgid "Problem confirming user account. Please contact the system administrator."
 msgstr "Problemas confirmando la cuenta. Por favor contacte al administrador del sistema."
 
-#: web/controllers/controller_helpers.ex:174
+#: web/controllers/controller_helpers.ex:177
 msgid "Registration created successfully."
 msgstr "Registro creado correctamente."
 
@@ -103,7 +103,7 @@ msgstr "Sesión iniciada correctamente."
 
 #: web/controllers/session_controller.ex:97
 msgid "Too many failed login attempts. Account has been locked."
-msgstr "Demasiados intentos fallidos. Cuenta ha sido bloequeada."
+msgstr "Su cuenta se encuentra bloqueada."
 
 #: web/controllers/unlock_controller.ex:54
 msgid "Unlock Instructions sent."
@@ -128,3 +128,11 @@ msgstr "Tu cuenta ha sido bloqueada."
 #: web/controllers/unlock_controller.ex:58
 msgid "Your account is not locked."
 msgstr "Tu cuenta no se encuentra bloqueada."
+
+#: web/controllers/session_controller.ex:138
+msgid "Incorrect email or password."
+msgstr "Correo/contraseña inválidos."
+
+#: web/controllers/session_controller.ex:139
+msgid "Maximum Login attempts exceeded. Your account has been locked."
+msgstr "Ha excedido la cantidad de inicios de sesión incorrectos, su cuenta ha sido bloqueada."

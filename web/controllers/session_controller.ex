@@ -135,8 +135,8 @@ defmodule Coherence.SessionController do
   #   |> delete_rememberable(user)
   # end
 
-  @flash_invalid "Incorrect #{Config.login_field} or password."
-  @flash_locked "Maximum Login attempts exceeded. Your account has been locked."
+  @flash_invalid gettext("Incorrect email or password.")
+  @flash_locked gettext("Maximum Login attempts exceeded. Your account has been locked.")
 
   defp log_lockable_update({:error, changeset}) do
     lockable_failure changeset
